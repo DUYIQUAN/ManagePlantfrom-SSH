@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <% response.sendRedirect("properties/getName"); %>
+   <% response.sendRedirect("properties/getName"); %>
   </body>
 </html>

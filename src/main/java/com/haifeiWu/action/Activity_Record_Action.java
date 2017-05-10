@@ -165,6 +165,7 @@ public class Activity_Record_Action {
 			request.setAttribute("staff", staff);
 			int complete_degree = (int) (suspectInfor.getFill_record()
 					/ (float) suspectInfor.getTotal_record() * 100);
+			System.out.println(complete_degree);
 			request.setAttribute("complete_degree", complete_degree);
 			request.setAttribute("SuspectInfor", suspectInfor);
 

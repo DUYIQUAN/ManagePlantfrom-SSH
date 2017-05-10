@@ -49,20 +49,7 @@ public class LoginfoInterceptors implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 			Object arg2, ModelAndView arg3) throws Exception {
 
-		String arg = arg2.toString();
-		if (arg.indexOf("[") == -1) {
-			arg = arg.substring(0, arg.indexOf("("));
-			arg = arg.substring(arg.lastIndexOf(".") + 1, arg.length());
-		}
-		System.out.println("进入拦截器" + arg);
-		String username = (String) arg0.getSession().getAttribute("staffname");
-		System.out.println(username + "===========================");
-		PHCSMP_LogInfo log = judgeRuquest(arg, username, arg0, arg1);
-		System.out.println(log.getOperation_Time());
-		if (log.getOperation_Time() != null && log.getOperation_Time() != "") {
-			saveLogInfo(log);
-		}
-		System.out.println("进入中间" + arg2.toString());
+		
 	}
 
 	/**
@@ -91,6 +78,20 @@ public class LoginfoInterceptors implements HandlerInterceptor {
 //			saveLogInfo(log);
 //		}
 
+		String arg = arg2.toString();
+		if (arg.indexOf("[") == -1) {
+			arg = arg.substring(0, arg.indexOf("("));
+			arg = arg.substring(arg.lastIndexOf(".") + 1, arg.length());
+		}
+		System.out.println("进入拦截器" + arg);
+		String username = (String) arg0.getSession().getAttribute("staffname");
+		System.out.println(username + "===========================");
+		PHCSMP_LogInfo log = judgeRuquest(arg, username, arg0, arg1);
+		System.out.println(log.getOperation_Time());
+		if (log.getOperation_Time() != null && log.getOperation_Time() != "") {
+			saveLogInfo(log);
+		}
+		System.out.println("进入中间" + arg2.toString());
 		return true;
 	}
 
